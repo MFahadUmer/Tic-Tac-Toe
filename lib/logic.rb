@@ -1,5 +1,5 @@
 class TicTacToe
-  attr_reader :new_array
+  attr_accessor :new_array
   attr_reader :win_array
   attr_reader :win_variable
 
@@ -22,11 +22,11 @@ class TicTacToe
     return_array
   end
 
-  def draw_status
+  def draw_status(array = @new_array)
     return true unless @new_array.include? '-'
   end
 
-  def win_status
+  def win_status(array = @new_array)
     @win_array.each do |x|
       count = 0
       x.each do |y|
