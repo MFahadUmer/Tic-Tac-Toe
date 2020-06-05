@@ -23,18 +23,25 @@ class TicTacToe
   end
 
   def draw_status(array = @new_array)
-    return true unless @new_array.include? '-'
+    return_value = false
+    return_value = true unless array.include? '-'
+    return return_value
   end
 
-  def win_status(array = @new_array)
+  def win_status(array = @new_array , symbol = @symbol)
+    return_value = false
     @win_array.each do |x|
       count = 0
       x.each do |y|
-        if @new_array[y - 1] == @symbol
+        if array[y - 1] == symbol
           count += 1
-          return true if count == 3
+          return_value = true if count == 3
         end
       end
     end
+    return return_value
   end
 end
+
+logic =TicTacToe.new
+p logic.check('X' , 10)
