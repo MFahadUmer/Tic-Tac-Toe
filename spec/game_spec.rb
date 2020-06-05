@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 require './lib/board.rb'
 require './lib/logic.rb'
 
@@ -5,8 +6,7 @@ describe Board do
   describe '#display_board' do
     it 'Returns the display of board' do
       board = Board.new
-      expect(board.display_board([1, 2, 3, 4, 5, 6, 7, 8, 9])).to eql("  1  |  2  |  3  \n  4  |  5  |  6  \n  7  |  8  |  9  \n ")
-    end
+      expect(board.display# rubocop:disable Layout/LineLength
     it 'Returns the display of Empty board' do
       board = Board.new
       expect(board.display_board(['-', '-', '-', '-', '-', '-', '-', '-', '-'])).to eql("  -  |  -  |  -  \n  -  |  -  |  -  \n  -  |  -  |  -  \n ")
@@ -76,3 +76,4 @@ describe TicTacToe do
     end
   end
 end
+# rubocop:enable Layout/LineLength
