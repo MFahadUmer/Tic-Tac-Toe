@@ -25,10 +25,10 @@ class TicTacToe
   def draw_status(array = @new_array)
     return_value = false
     return_value = true unless array.include? '-'
-    return return_value
+    return_value
   end
 
-  def win_status(array = @new_array , symbol = @symbol)
+  def win_status(array = @new_array, symbol = @symbol)
     return_value = false
     @win_array.each do |x|
       count = 0
@@ -39,9 +39,6 @@ class TicTacToe
         end
       end
     end
-    return return_value
+    return_value
   end
 end
-
-logic =TicTacToe.new
-p logic.check('X' , 10)
