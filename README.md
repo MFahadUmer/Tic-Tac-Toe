@@ -1,6 +1,8 @@
 # Tic_Tac_To
 
 <br />
+ 
+<br> 
 
 ## Table of Contents
 
@@ -76,3 +78,4 @@ Contributions are what make the open source community such an amazing place to b
 * Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 * Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
 * Email: [Email](devkamilnaija@gmail.com)
+
