@@ -8,20 +8,16 @@ describe Board do
       board = Board.new
       expect(board.display_board([1, 2, 3, 4, 5, 6, 7, 8, 9])).to eql("  1  |  2  |  3  \n  4  |  5  |  6  \n  7  |  8  |  9  \n ")
     end
-    it 'Returns the display of Empty board' do
-      board = Board.new
-      expect(board.display_board(['-', '-', '-', '-', '-', '-', '-', '-', '-'])).to eql("  -  |  -  |  -  \n  -  |  -  |  -  \n  -  |  -  |  -  \n ")
-    end
   end
 end
 
 describe TicTacToe do
   describe '#check' do
-    it 'Returns the true and array' do
+    it 'Returns true and the board array' do
       logic = TicTacToe.new
       expect(logic.check('X', 9)).to eql [true, ['-', '-', '-', '-', '-', '-', '-', '-', 'X']]
     end
-    it 'Returns the False and error Message Invalid Choice' do
+    it 'Returns false and error Message Invalid Choice' do
       logic = TicTacToe.new
       expect(logic.check('X', 10)).to eql [false, 'Invalid Choice. Please Select 1 - 9 ']
     end

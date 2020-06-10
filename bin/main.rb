@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../lib/board.rb'
 require_relative '../lib/logic.rb'
+require_relative '../lib/player.rb'
 
 puts 'Welcome to Tic Tac TOE'
 puts 'Please Read All Rules Carefully'
@@ -9,13 +10,26 @@ board = Board.new
 sample_array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 puts board.display_board(sample_array)
 puts
-print 'First Player : Please Enter Your Name: '
-first_player = gets.chomp
-first_player = 'PLayer : 1 ' if first_player.empty?
-print 'Second Player : Please Enter Your Name: '
-second_player = gets.chomp
-second_player = 'PLayer : 2 ' if second_player.empty?
-puts "#{first_player} has symbol X and #{second_player} has been assigned symbol O"
+player = Player.new
+names_array = []
+count = 0
+while count < 2
+  print "Player #{count + 1} : Please Enter Your Name: "
+  player_name = gets.chomp
+  player_empty = player.empty_name(player_name)
+  if player_empty.nil?
+    player_name = player.player_name(player_name)
+    if player_name[0] == true
+      names_array[count] = player_name[1]
+      count += 1
+    else
+      puts player_name[1]
+    end
+  else
+    puts player_empty
+  end
+end
+puts "#{names_array[0]} has symbol X and #{names_array[1]} has been assigned symbol O"
 puts
 logic = TicTacToe.new
 my_array = []
@@ -23,14 +37,14 @@ puts 'Yous game starts Now'
 puts 'Your Board is given below'
 puts board.display_board
 puts
-current_player = first_player
+current_player = names_array[0]
 game = true
 while game
   puts 'To Acquire your box you have to select the number from 1 - 9'
   print "#{current_player} please select your box: "
   position = gets.chomp.to_i
   symbol =
-    if current_player == first_player
+    if current_player == names_array[0]
       'X'
     else
       'O'
@@ -46,10 +60,10 @@ while game
       game = false
     end
     current_player =
-      if current_player == first_player
-        second_player
+      if current_player == names_array[0]
+        names_array[1]
       else
-        first_player
+        names_array[0]
       end
   else
     puts game_check[1]
